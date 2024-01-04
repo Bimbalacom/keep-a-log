@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bimbala - Changelog Editor</title>
-
+    
+    <!-- Meta tags for SEO -->
     <meta name="description" content="Brief description of the changelog page">
-    <meta name="keywords" content="Keywords relevant to your changelog">
+    <meta name="keywords" content="changelog, helper, keep, logs, pages, changelog page,">
     <meta name="author" content="Bimbala">
-<!-- Add other necessary meta tags for SEO here -->
+
 
     <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="assets/style.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
@@ -24,24 +25,16 @@
             <!-- Form Title -->
             <h2 class="text-xl font-bold mb-4">Changelog Editor</h2>
 
-            <!-- Explanation -->
-            <div class="text-gray-700 mb-4">
-                <p class="mb-2">What defines a changelog?</p>
-                <p class="mb-4">A changelog stands as a document that systematically records significant alterations in chronological order across different versions of a project.</p>
-
-                <p class="mb-2">What's the purpose of maintaining a changelog?</p>
-                <p>Maintaining a changelog simplifies the process for users and contributors to precisely track and comprehend noteworthy modifications made between each release or version of the project.</p>
-            </div>
-
             <!-- Version and Date -->
-            <div class="flex mb-4 items-center"">
-                <label class="block  text-sm font-bold mb-2" for="version">Version:</label>
-                <input class="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="version" type="text" placeholder="1.0.0">
+            <div class="flex mb-4 items-center">
+                <label class="block text-sm font-bold mb-2" for="version">Version:</label>
+                <input class="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="version" type="text" placeholder="1.0.0" pattern="[a-zA-Z0-9]{6}" title="Please enter numbers and dots only">
+
             </div>
 
             <div class="mb-4 flex items-center">
                 <label class="block text-sm font-bold mr-2" for="date">Date:</label>
-                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" id="date" type="text" placeholder="YYYY-MM-DD">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" id="date" type="date" placeholder="YYYY-MM-DD">
                 <button onclick="addTodayDate()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 focus:outline-none focus:shadow-outline" type="button">Today</button>
             </div>
 
@@ -74,9 +67,11 @@
             <!-- Generated Changelog -->
             <div class="mt-4">
                 <textarea id="generatedChangelog" rows="8" cols="50" class="generated-changelog shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Generated Changelog" readonly></textarea>
-            </div>
+            </div>  
+
         </div>
     </div>
+
 
     <script>
         function generateChangelog() {
@@ -87,6 +82,11 @@
             const changed = document.querySelector('.changed-items').value.trim();
             const removed = document.querySelector('.removed-items').value.trim();
 
+            if (!validateVersion(version)) {
+                alert('Please enter a valid version in the format of number.number.number (e.g., 1.0.0)');
+                return;
+            }
+
             let changelog = `## [${version}] - ${date}\n\n`;
             changelog += formatSection(added, 'Added');
             changelog += formatSection(fixed, 'Fixed');
@@ -96,13 +96,18 @@
             document.getElementById('generatedChangelog').value = changelog.trim();
         }
 
+        function validateVersion(version) {
+            const versionRegex = /^\d+\.\d+\.\d+$/;
+            return versionRegex.test(version);
+        }
+
         function formatSection(sectionText, sectionTitle) {
             if (sectionText !== '') {
                 const lines = sectionText.split('\n');
                 const formattedLines = lines.map(line => `- ${line}`).join('\n');
                 return `### ${sectionTitle}\n${formattedLines}\n\n`;
             }
-            return '';
+        return '';
         }
         function addTodayDate() {
             const dateInput = document.getElementById('date');
