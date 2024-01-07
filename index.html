@@ -7,77 +7,90 @@
     <title>Bimbala - Changelog Editor</title>
     
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Brief description of the changelog page">
+    <meta name="description" content="Create and edit your project's changelog with ease using Bimbala Changelog Editor.">
     <meta name="keywords" content="changelog, helper, keep, logs, pages, changelog page,">
     <meta name="author" content="Bimbala">
-
 
     <!-- Include Tailwind CSS -->
     <link href="assets/style.min.css" rel="stylesheet">
 </head>
 
-<body class="">
-
-    <!-- Content -->
-    <div class="container mx-auto p-4">
-        <!-- Changelog Form -->
-        <div class="bg-white">
-            <!-- Form Title -->
-            <h2 class="text-xl font-bold mb-4">Changelog Editor</h2>
-
-            <!-- Version and Date -->
-           <div class="flex mb-4 text-sm items-center font-bold">
-                <label class="block text-sm" for="version">Version:</label>
-                <input class="shadow appearance-none border rounded w-3/4 py-2 px-3 ml-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="version" type="text" placeholder="1.0.0" pattern="[a-zA-Z0-9]{6}" title="Please enter numbers and dots only">
-
-                <label class="block font-bold mx-2" for="date">Date:</label>
-                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" id="date" type="date" placeholder="YYYY-MM-DD">
-                <button onclick="addTodayDate()" class="block py-2 px-4 ml-2 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none" type="button">Today</button>
-            </div>
-
-
-            <!-- Sections -->
-            <div class="mb-4">
-                <label class="block font-bold mb-2">Added:</label>
-                <textarea class="added-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter added items here..."></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-bold mb-2">Fixed:</label>
-                <textarea class="fixed-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter fixed items here..."></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-bold mb-2">Changed:</label>
-                <textarea class="changed-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter changed items here..."></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-bold mb-2">Removed:</label>
-                <textarea class="removed-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter removed items here..."></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="flex items-center justify-between">
-                <button onclick="generateChangelog()" class="block py-2 px-4 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none" type="button">Generate</button>
-            </div>
-
-            <!-- Generated Changelog -->
-            <div class="mt-4 relative">
-                <textarea id="generatedChangelog" rows="8" cols="50" class="generated-changelog shadow appearance-none border rounded w-full py-2 px-3 pr-10 leading-tight focus:outline-none focus:shadow-outline" placeholder="Generated Changelog" readonly>Your changelog content here</textarea>
-                    <button onclick="copyChangelog()" class="absolute top-0 right-0 mt-2 mr-2 p-2 bg-gray-200 rounded hover:bg-gray-300 focus:outline-none">
-                        <!-- Icon for copy -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
-                        </svg>
-                    </button>
+<body>
+<!-- Content -->
+<div class="container mx-auto p-4">
+    <!-- Header -->
+    <nav>
+        <div class="flex flex-wrap justify-between items-center mx-auto p-4">
+            <a href="https://keep-a-logs.bimbala.com" class="flex items-center space-x-3 ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+                <span class="self-center text-2xl font-bold whitespace-nowrap">Keep A Log</span>
+            </a>
+        </div>
+    </nav>
+    <nav>
+        <div class="px-4 py-3 mx-auto">
+            <div class="flex items-center">
+                <ul class="flex flex-row font-medium mt-0 space-x-8 text-sm">
+                    <li>
+                        <a href="#" class="hover:underline">Keep a Log</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <!-- End Header -->
+
+    <!-- Version and Date -->
+    <div class="flex m-4 text-sm items-center font-bold">
+        <label class="block text-sm" for="version">Version:</label>
+        <input class="shadow appearance-none border rounded w-3/4 py-2 px-3 ml-2 leading-tight focus:outline-none focus:shadow-outline" id="version" type="text" placeholder="1.0.0" pattern="[a-zA-Z0-9]{6}" title="Please enter a valid version number (e.g., 1.0.0)">
+
+        <label class="block font-bold mx-2" for="date">Date:</label>
+        <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" id="date" type="date" placeholder="YYYY-MM-DD">
+        <button onclick="addTodayDate()" class="block py-2 px-4 ml-2 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none" type="button">Today</button>
     </div>
 
+    <!-- Sections -->
+    <div class="mb-4">
+        <label class="block font-bold mb-2">Added:</label>
+        <textarea class="added-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter added items here..."></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label class="block font-bold mb-2">Fixed:</label>
+        <textarea class="fixed-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter fixed items here..."></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label class="block font-bold mb-2">Changed:</label>
+        <textarea class="changed-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter changed items here..."></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label class="block font-bold mb-2">Removed:</label>
+        <textarea class="removed-items shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter removed items here..."></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex items-center justify-between">
+        <button onclick="generateChangelog()" class="block py-2 px-4 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none" type="button">Generate</button>
+    </div>
+
+    <!-- Generated Changelog -->
+    <div class="mt-4 relative">
+        <textarea id="generatedChangelog" rows="8" cols="50" class="generated-changelog shadow appearance-none border rounded w-full py-2 px-3 pr-10 leading-tight focus:outline-none focus:shadow-outline" placeholder="Generated Changelog" readonly title="Click to copy to clipboard">Your changelog content here</textarea>
+            <button onclick="copyChangelog()" class="absolute top-0 right-0 mt-2 mr-2 p-2 bg-gray-200 rounded hover:bg-gray-300 focus:outline-none">
+                <!-- Icon for copy -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                </svg>
+            </button>
+    </div>
     <!-- Footer -->
     <footer class="pt-10">
-        <div class="max-w-screen-2xl mx-auto px-4">
+        <div class="mx-auto px-4">
             <div class="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
                 <img src="https://bimbala.com/bimbala/img/logo.png" class="w-16 sm:mx-auto" />
                 <p>Want to keep it simple?</p>
@@ -105,6 +118,7 @@
         </div>
     </footer>
     <!-- End Footer -->
+    </div>
 </div>
 <script src="script.js"></script>
 </body>

@@ -11,7 +11,7 @@ function generateChangelog() {
         return;
     }
 
-    let changelog = `## [${version}] - ${date}\n\n`;
+    let changelog = date ? `## [${version}] - ${date}\n\n` : `## [${version}]\n\n`;
     changelog += formatSection(added, 'Added');
     changelog += formatSection(fixed, 'Fixed');
     changelog += formatSection(changed, 'Changed');
@@ -26,7 +26,7 @@ function validateVersion(version) {
 }
 
 function formatSection(sectionText, sectionTitle) {
-    if (sectionText !== '') {
+    if (sectionText.trim() !== '') {
         const lines = sectionText.split('\n');
         const formattedLines = lines.map(line => `- ${line}`).join('\n');
         return `### ${sectionTitle}\n${formattedLines}\n\n`;
@@ -38,8 +38,7 @@ function formatSection(sectionText, sectionTitle) {
 
 function addTodayDate() {
     const dateInput = document.getElementById('date');
-    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-    dateInput.value = today;
+    dateInput.valueAsDate = new Date();
 }
 
 function copyChangelog() {
@@ -49,12 +48,12 @@ function copyChangelog() {
     generatedChangelog.select();
     generatedChangelog.setSelectionRange(0, 99999); // For mobile devices
 
-    // Copy the selected text
-    document.execCommand('copy');
-
     // Deselect the text
     window.getSelection().removeAllRanges();
-    
-    // Alert or notification to indicate successful copy
-    alert('Changelog copied to clipboard!');
+
+    navigator.clipboard.writeText(generatedChangelog.value).then(() => {
+       alert('Changelog copied to clipboard!');
+    }, (err) => {
+        console.error('Could not copy changelog: ', err);
+    });
 }
