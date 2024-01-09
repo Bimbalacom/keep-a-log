@@ -35,7 +35,7 @@
   <h3 align="center">Bimbala Changelog Editor</h3>
 
   <p align="center">
-    Here you can find the source code of free Changelog Editor. It is browser based so it supported on Windows, Linux and Mac OS.
+    Here you can find the source code of the free Changelog Editor. It is browser-based so it is supported on Windows, Linux, and Mac OS.
     <br />
     <br />
     <a href="#">View Demo</a>
@@ -115,15 +115,15 @@ Our Discord - [@bimbala](https://bimbala.com/discord)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Bimbalacom/Desktop.svg?style=flat-square
-[contributors-url]: https://github.com/Bimbalacom/Desktop/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Bimbalacom/Desktop.svg?style=flat-square
-[forks-url]: https://github.com/Bimbalacom/Desktop/network/members
-[stars-shield]: https://img.shields.io/github/stars/Bimbalacom/Desktop.svg?style=flat-square
-[stars-url]: https://github.com/Bimbalacom/Desktop/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Bimbalacom/Desktop.svg?style=flat-square
-[issues-url]: https://github.com/Bimbalacom/Desktop/issues
-[license-shield]: https://img.shields.io/github/license/Bimbalacom/Desktop.svg?style=flat-square
-[license-url]: https://github.com/Bimbalacom/Desktop/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Bimbalacom/keep-a-log.svg?style=flat-square
+[contributors-url]: https://github.com/Bimbalacom/keep-a-log/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Bimbalacom/keep-a-log.svg?style=flat-square
+[forks-url]: https://github.com/Bimbalacom/keep-a-log/network/members
+[stars-shield]: https://img.shields.io/github/stars/Bimbalacom/keep-a-log.svg?style=flat-square
+[stars-url]: https://github.com/Bimbalacom/keep-a-log/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Bimbalacom/keep-a-log.svg?style=flat-square
+[issues-url]: https://github.com/Bimbalacom/keep-a-log/issues
+[license-shield]: https://img.shields.io/github/license/Bimbalacom/keep-a-log.svg?style=flat-square
+[license-url]: https://github.com/Bimbalacom/keep-a-log/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/bimbala/
