@@ -124,6 +124,6 @@ Our Discord - [@bimbala](https://bimbala.com/discord)
 [issues-shield]: https://img.shields.io/github/issues/Bimbalacom/keep-a-log.svg?style=flat-square
 [issues-url]: https://github.com/Bimbalacom/keep-a-log/issues
 [license-shield]: https://img.shields.io/github/license/Bimbalacom/keep-a-log.svg?style=flat-square
-[license-url]: https://github.com/Bimbalacom/keep-a-log/blob/master/LICENSE.txt
+[license-url]: https://github.com/Bimbalacom/keep-a-log/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/bimbala/
