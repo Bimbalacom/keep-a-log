@@ -38,7 +38,7 @@
     Here you can find the source code of the free Changelog Editor. It is browser-based so it is supported on Windows, Linux, and Mac OS.
     <br />
     <br />
-    <a href="#">View Demo</a>
+    <a href="https://bimbalacom.github.io/keep-a-log/">View Demo</a>
     ·
     <a href="https://github.com/Bimbalacom/keep-a-log/issues/new?assignees=&labels=bug&template=bug_report.md&title=">Report Bug</a>
     ·
